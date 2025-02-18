@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Input Data {% endblock %}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">File Name</label><br>
+        <input type="text" name="title" placeholder="Enter file name" value="{{ request.form['title'] }}"></input><br><br>
+
+        <label for="vectorfile">Vector File</label><br>
+        <input type="file" name="vectorfile"></input><br><br>
+
+        <label for="stlfile">STL File</label><br>
+        <input type="file" name="stlfile"></input><br><br>
+
+        <label for="columnnum">Number of Columns</label> <input type="number" name="columnnum"></input>
+        <br>
+        <p>For the following fields, fill out the column number (start with 0) for each coordinate. Enter "0" if the m column is not present. Be sure to provide all other column values. In cases of .csv files, insert "0" values in column fields.</p>
+        <label for="xcol" id="option">X Coordinate</label> <input type="number" name="xcol" style="width: 30px"></input>
+        <label for="ycol" id="option">Y Coordinate</label> <input type="number" name="ycol" style="width: 30px"></input>
+        <label for="zcol" id="option">Z Coordinate</label> <input type="number" name="zcol" style="width: 30px"></input>
+        <label for="stresscol" id="option">Stress</label> <input type="number" name="stresscol" style="width: 30px"></input>
+
+        <button type="submit">Generate</button>
+    </form>
+{% endblock %}

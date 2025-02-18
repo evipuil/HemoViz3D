@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Input Data {% endblock %}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">File Name</label>
+        <br>
+        <input type="text" name="title"
+               placeholder="Enter file name"
+               value="{{ request.form['title'] }}"></input>
+        <br>
+
+        <label for="content">Vector File</label>
+        <br>
+        <input type="file" name="content"></input>
+        <br>
+        <label for="content2">STL File</label>
+        <br>
+        <input type="file" name="content2"></input>
+        <br>
+        <button type="submit">Generate</button>
+    </form>
+{% endblock %}

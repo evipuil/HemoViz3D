@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Input Data {% endblock %}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="title">File Name</label><br>
+        <input type="text" name="title"
+               placeholder="Enter file name"
+               value="{{ request.form['title'] }}"></input><br><br>
+
+        <label for="vectorfiles">Vector Files</label><br>
+        <input type="file" name="vectorfiles" multiple></input><br><br>
+
+        <label>Vector Point Type</label><br>
+        <input type="radio" name="vectortype" value="dots">
+        <label for="Dots" id="option">Scatter Points</label>
+        <input type="radio" name="vectortype" value="arrows">
+        <label for="Arrows" id="option">Vector Arrows</label><br><br>
+
+        <label for="stlfile">STL File</label><br>
+        <input type="file" name="stlfile"></input><br><br>
+
+        <label>Video Type</label><br>
+        <input type="radio" name="videotype" value="2D">
+        <label for="Dots" id="option">2D Video</label>
+        <input type="radio" name="videotype" value="3D">
+        <label for="Arrows" id="option">3D Video</label><br><br>
+
+        <label for="columnnum">Number of Columns</label> <input type="number" name="columnnum"></input>
+        <br>
+        <p>For the following fields, fill out the column number (start with 0) for each coordinate. Enter "0" if the m column is not present. Be sure to provide all other column values. In cases of .csv files, insert "0" values in column fields.</p>
+        <label for="xcol" id="option">X Coordinate</label> <input type="number" name="xcol" style="width: 30px"></input>
+        <label for="ycol" id="option">Y Coordinate</label> <input type="number" name="ycol" style="width: 30px"></input>
+        <label for="zcol" id="option">Z Coordinate</label> <input type="number" name="zcol" style="width: 30px"></input>
+        <label for="ucol" id="option">X Velocity</label> <input type="number" name="ucol" style="width: 30px"></input>
+        <label for="vcol" id="option">Y Velocity</label> <input type="number" name="vcol" style="width: 30px"></input>
+        <label for="wcol" id="option">Z Velocity</label> <input type="number" name="wcol" style="width: 30px"></input>
+        <label for="mcol" id="option">Magnitude</label> <input type="number" name="mcol" style="width: 30px"></input><br><br>
+
+        <button type="submit">Generate</button>
+    </form>
+{% endblock %}

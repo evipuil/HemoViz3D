@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{% block title %} Generation Examples {% endblock %}</h1>
+<img src="/example1.png" alt="Example 1 Broken">
+<img src="/example2.png" alt="Example 2 Broken">
+<img src="/example3.png" alt="Example 3 Broken">
+
+
+{% for message in messages %}
+    <div class='message'>
+        <h3>{{ message['title'] }}</h3>
+        <p>{{ message['content'] }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
